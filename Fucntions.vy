@@ -3,12 +3,18 @@
 
 n: public(uint8)
 
+#constructor
+@deploy
+def __init__():
+    self.n = 7
+
 @external
 def store(n_new: uint8):
     self.n = n_new
 
 @external 
-@view ''' only view. will not spend any gas to call this function
+@view 
+''' only view. will not spend any gas to call this function
 It is only used to read the data stored. and not update any data
 from the smart contract.
 Calling a view function is free. But when the transaction calls
